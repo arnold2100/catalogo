@@ -60,6 +60,9 @@
                                          <li>
                                             <a href="{{ url('/admin/categories') }}">Gestionar categorias</a>
                                         </li>
+                                        <li>
+                                            <a href="{{ url('/admin/catalogo') }}">Catalogo</a>
+                                        </li>
                                     @endif
                                     <li>
                                         <a href="{{ route('logout') }}"

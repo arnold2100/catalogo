@@ -7,6 +7,7 @@ use App\Http\Controllers\CartDetailController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PrendaController;
+use App\Http\Controllers\admin\catalogo;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Auth;
@@ -48,6 +49,9 @@ Route::delete('/cart', [CartDetailController::class, 'destroy']);
 Route::post('/order', [CartController::class, 'update']);
 
 Route::middleware(['auth','admin'])->namespace('Admin')->prefix('admin')->group(function () {
+
+	Route::get('/catalogo', [catalogo::class,'index']);
+
 	Route::get('/products', [AdminPrendaController::class, 'index']); //listar 
 	Route::get('/products/create', [AdminPrendaController::class, 'create']); //formulario para crear
 	Route::post('/products', [AdminPrendaController::class, 'store']); //crear
